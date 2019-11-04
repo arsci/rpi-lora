@@ -6,6 +6,7 @@ import board
 import adafruit_ssd1306
 import adafruit_rfm9x
 import argparse
+import sys
 
 def main(args):
 
@@ -25,7 +26,11 @@ def parse_args():
     
     parser = argparse.ArgumentParser(description='Send Packet')
 
-    parser.add_argument('--data', type=str, nargs='+', help='Data to send over LORA')
+    parser.add_argument('--data', type=str, help='Data to send over LORA')
+
+    args = parser.parse_args()
+    
+    return args
 
 if __name__ == "__main__":
 

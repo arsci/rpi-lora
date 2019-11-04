@@ -20,6 +20,8 @@ def main(args):
     data = bytes(args.data,"utf-8")
     rfm9x.send(data)
 
+    print("Packet Sent")
+
     return 0
 
 def parse_args():

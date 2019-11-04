@@ -18,9 +18,8 @@ while True:
         packet = rfm9x.receive()
     except:
         print('Error receiving')
-    if packet is None:
-        print('Waiting for packet')
-    else:
+    if packet is not None:
+
         prev_packet = packet
         packet_text = str(prev_packet, "utf-8")
         print('RX: ' + packet_text)

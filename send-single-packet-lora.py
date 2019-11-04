@@ -6,7 +6,7 @@ import board
 import adafruit_ssd1306
 import adafruit_rfm9x
 
-def main(args)
+def main(args):
 
     CS = DigitalInOut(board.CE1)
     RESET = DigitalInOut(board.D25)

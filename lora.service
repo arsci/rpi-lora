@@ -1,0 +1,14 @@
+[Unit]
+Description=lora-tx
+
+[Service]
+ExecStart=/home/pi/lora/index.js
+Restart=always
+User=nobody
+Group=nogroup
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/home/pi/lora/
+
+[Install]
+WantedBy=multi-user.target

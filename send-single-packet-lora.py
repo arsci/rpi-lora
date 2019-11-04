@@ -17,6 +17,8 @@ def main(args):
     rfm9x.tx_power = 13
     prev_packet = None
 
+    print("Sending: " + args.data)
+
     data = bytes(args.data,"utf-8")
     rfm9x.send(data)
 

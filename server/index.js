@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
     catch {
         console.log("none");
     }
-    child = spawn('python3', ['scripts/send-single-packet-lora2.py', '{test-api}'], [], function(err, stdout, stderr) { 
+    child = spawn('python3', ['scripts/send-single-packet-lora.py', '{test-api}'], [], function(err, stdout, stderr) { 
         if(err) { console.log(err) }
         if(stderr) { console.log(err) }
         console.log(stdout); 

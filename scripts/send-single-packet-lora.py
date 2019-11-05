@@ -8,40 +8,31 @@ import adafruit_rfm9x
 import argparse
 import sys
 
-def main(args):
-
+def main(data_send):
+    print('Starting')
     CS = DigitalInOut(board.CE1)
+    print("CS")
     RESET = DigitalInOut(board.D25)
+    print("RESET")
     spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
+    print("SPI")
     rfm9x = adafruit_rfm9x.RFM9x(spi, CS, RESET, 915.0)
-    rfm9x.tx_power = 13
+    print("rfm9x")
+    rfm9x.tx_power = 23
+    print("tx")
     prev_packet = None
 
-    print("TX: " + args.data)
+    print("TX: " + data_send)
 
-    data = bytes(args.data,"utf-8")
+    data = bytes(data_send,"utf-8")
     rfm9x.send(data)
 
     print("Packet Sent")
 
-    return 0
+    sys.exit(0)
 
-def parse_args():
-    
-    parser = argparse.ArgumentParser(description='Send Packet')
+if __name__ == '__main__':
 
-    parser.add_argument('--data', type=str, help='Data to send over LORA')
+    main(sys.argv[1])
 
-    args = parser.parse_args()
-    
-    return args
-
-if __name__ == "__main__":
-
-    print('Preparing to send packet')
-    
-    args = parse_args()
-
-    main(args)
-    
     sys.exit(0)

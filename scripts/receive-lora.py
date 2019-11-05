@@ -21,8 +21,10 @@ while True:
     if packet is not None:
 
         prev_packet = packet
-        packet_text = str(prev_packet, "utf-8")
-        print('RX: ' + packet_text)
-        time.sleep(1)
+        try:
+            packet_text = str(prev_packet, "utf-8")
+            print('RX: ' + packet_text)
+        except:
+            print('Error decoding packet')
  
-    time.sleep(0.1)
+    time.sleep(1)

@@ -1,0 +1,13 @@
+[Unit]
+Description=lora-rx
+
+[Service]
+ExecStart=/home/pi/rpi-lora/receive-lora.py
+Restart=always
+User=pi
+#Group=nogroup
+Environment=PATH=/usr/bin:/usr/local/bin
+WorkingDirectory=/home/pi/rpi-lora/
+
+[Install]
+WantedBy=multi-user.target

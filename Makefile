@@ -18,7 +18,7 @@ install.rec:
 	cp service/lora-rec.service /etc/systemd/system/lora-rec.service && systemctl daemon-reload && systemctl enable lora-rec && systemctl start lora-rec && systemctl status lora-rec
 
 update.rec:
-	systemctl stop lora-rec & cp service/lora-rec.service /etc/systemd/system/lora-rec.service && systemctl daemon-reload && systemctl enable lora-rec && systemctl start lora-rec && systemctl status lora-re
+	systemctl stop lora-rec & cp service/lora-rec.service /etc/systemd/system/lora-rec.service && systemctl daemon-reload && systemctl enable lora-rec && systemctl start lora-rec && systemctl status lora-rec
 
 uninstall.rec:
 	systemctl stop lora-rec && systemctl disable lora-rec && rm -rf /etc/systemd/system/lora-rec.service && systemctl daemon-reload

@@ -31,6 +31,6 @@ while True:
             packet_text = str(prev_packet, "utf-8")
             print('RX: ' + packet_text)
         except:
-            print('Error decoding packet')
+            pass
  
     time.sleep(1)

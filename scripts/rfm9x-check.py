@@ -4,7 +4,6 @@ import time
 import busio
 from digitalio import DigitalInOut, Direction, Pull
 import board
-import adafruit_ssd1306
 import adafruit_rfm9x
  
 CS = DigitalInOut(board.CE1)

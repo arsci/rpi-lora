@@ -3,7 +3,6 @@ import datetime
 import busio
 from digitalio import DigitalInOut, Direction, Pull
 import board
-import adafruit_ssd1306
 import adafruit_rfm9x
 
 CS = DigitalInOut(board.CE1)
@@ -18,3 +17,5 @@ while True:
     data = bytes("LORA-1: " + str(datetime.datetime.now()),"utf-8")
     rfm9x.send(data)
     time.sleep(1)
+
+    

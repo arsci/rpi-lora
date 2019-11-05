@@ -7,7 +7,7 @@ Restart=always
 User=pi
 #Group=nogroup
 Environment=PATH=/usr/bin:/usr/local/bin
-WorkingDirectory=/home/pi/rpi-lora/
+WorkingDirectory=/home/pi/rpi-lora/scripts/
 
 [Install]
 WantedBy=multi-user.target

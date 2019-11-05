@@ -17,7 +17,7 @@ install.rec:
 	pip3 install adafruit-circuitpython-framebuf && pip3 install adafruit-circuitpython-rfm9x
 	cp service/lora-rec.service /etc/systemd/system/lora-rec.service && systemctl daemon-reload && systemctl enable lora-rec && systemctl start lora-rec && systemctl status lora-rec
 
-update.rec;
+update.rec:
 	systemctl stop lora-rec & cp service/lora-rec.service /etc/systemd/system/lora-rec.service && systemctl daemon-reload && systemctl enable lora-rec && systemctl start lora-rec && systemctl status lora-re
 
 uninstall.rec:

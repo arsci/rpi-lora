@@ -73,7 +73,7 @@ These libraries/modules use Python 3, so be sure `python3` and `pip3` both work.
 
   If you see `RFM9x: ERROR` check your connections.  
 
-## Installing the LoRa scripts  
+## Installing the LoRa scripts/services  
 
 ### TX  
 
@@ -86,6 +86,20 @@ To install/configure the services on the pi used to transmit data:
 To install/configure the services on the pi used to receive data:  
 
 `sudo make install.rec`
+
+## Unstalling the LoRa scripts/services  
+
+### TX  
+
+To uninstall/configure the services on the pi used to transmit data:  
+
+`sudo make uninstall`  
+
+### RX 
+
+To uninstall/configure the services on the pi used to receive data:  
+
+`sudo make uninstall.rec`
 
 
 ## References  

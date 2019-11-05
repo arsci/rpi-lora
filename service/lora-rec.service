@@ -2,7 +2,7 @@
 Description=lora-rx
 
 [Service]
-ExecStart=/home/pi/rpi-lora/receive-lora.py
+ExecStart=/home/pi/rpi-lora/scripts/receive-lora.py
 Restart=always
 User=pi
 #Group=nogroup

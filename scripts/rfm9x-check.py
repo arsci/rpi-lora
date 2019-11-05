@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import time
 import busio
 from digitalio import DigitalInOut, Direction, Pull

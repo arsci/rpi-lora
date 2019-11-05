@@ -2,12 +2,11 @@
 Description=lora-rx
 
 [Service]
-ExecStart=/home/pi/rpi-lora/scripts/receive-lora.py
+ExecStart=/usr/bin/python3 -u /home/pi/rpi-lora/scripts/receive-lora.py
 Restart=always
 User=pi
-#Group=nogroup
 Environment=PATH=/usr/bin:/usr/local/bin
-WorkingDirectory=/home/pi/rpi-lora/scripts/
+WorkingDirectory=/home/pi/rpi-lora/
 
 [Install]
 WantedBy=multi-user.target

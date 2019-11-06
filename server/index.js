@@ -7,8 +7,8 @@ const app = express()
 const port = 3000
 var cors = require('cors')
 
-const bodyParser = require('body-parser');
-app.use(bodyParser);
+var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.post('/', (req, res) => {
 
@@ -20,7 +20,7 @@ app.post('/', (req, res) => {
     catch {
         console.log("none");
     }
-    child = spawn('python3', ['scripts/send-single-packet-lora.py', req.body], [], function(err, stdout, stderr) { 
+    child = spawn('python3', ['scripts/send-single-packet-lora.py', JSON.stringify(req.body)], [], function(err, stdout, stderr) { 
         if(err) { console.log(err) }
         if(stderr) { console.log(err) }
         console.log(stdout); 

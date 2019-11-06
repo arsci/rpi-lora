@@ -24,7 +24,7 @@ Python Example:
 
   headers = {'Content-Type': 'application/json'}
   body = {'Predicted_Sound__c': 'Chainsaw', 'Device_Number__c': 'ABC123', 'Volume__c': 26.72}
-  endpoint = 'http://<hostname>:3000'
+  endpoint = 'http://localhost:3000'
 
   requests.post(endpoint,data=json.dumps(body),headers=headers)
   

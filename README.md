@@ -17,9 +17,18 @@ The local web service allows API calls to be made from other programs/services/s
 
 To send data, send a json object with the appropriate data in a post request:
 
-Example:  
+Python Example:  
 
-  `curl -X POST http://<hostname>:3000 -d '{"data1":1. "data2":"info"}'`
+  ```
+  import requests,json
+
+  headers = {'Content-Type': 'application/json'}
+  body = {'Predicted_Sound__c': 'Chainsaw', 'Device_Number__c': 'ABC123', 'Volume__c': 26.72}
+  endpoint = 'http://<hostname>:3000'
+
+  requests.post(endpoint,data=json.dumps(body),headers=headers)
+  
+  ```
 
 ## RX 
 

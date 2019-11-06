@@ -15,6 +15,12 @@ The service provided for the pi configured to transmit data over LoRa has a loca
 
 The local web service allows API calls to be made from other programs/services/scripts on the Pi, which are then forwarded to the other raspberry pi (RX) over LoRa.
 
+To send data, send a json object with the appropriate data in a post request:
+
+Example:  
+
+  `curl -X POST http://<hostname>:3000 -d '{"data1":1. "data2":"info"}'`
+
 ## RX 
 
 The service provided for the pi configured to receive data over LoRa is a python script that listens and receives packets from the RFM9X module. The `receive-lora.py` script can be modified to take other actions based on the data received.

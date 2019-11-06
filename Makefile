@@ -5,6 +5,7 @@ install:
 	cp service/lora.service /etc/systemd/system/lora.service && systemctl daemon-reload && systemctl enable lora && systemctl start lora && systemctl status lora
 
 update:
+	cd server/ && npm install
 	systemctl stop lora && cp service/lora.service /etc/systemd/system/lora.service && systemctl daemon-reload && systemctl enable lora && systemctl start lora && systemctl status lora
 
 uninstall: 

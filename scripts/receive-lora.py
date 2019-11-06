@@ -7,6 +7,7 @@ import board
 import adafruit_rfm9x
 import json
 
+
 print('Setting up LoRa Receiver...')
 
 CS = DigitalInOut(board.CE1)
@@ -31,29 +32,11 @@ while True:
 
         prev_packet = packet
         try:
-            packet_text = json.loads(prev_packet)
-            packet_dict = json.loads(list(packet_text.keys())[0])
+            packet_dict = json.loads(prev_packet)
             led.value = True
             print(packet_dict)
             time.sleep(.5)
             led.value = False
-        except:
-            pass
- 
-    time.sleep(1)
-
-while True:
-    packet = None
-    try:
-        packet = rfm9x.receive()
-    except:
-        print('Error receiving')
-    if packet is not None:
-
-        prev_packet = packet
-        try:
-            packet_text = str(prev_packet, "utf-8")
-            print('RX: ' + packet_text)
         except:
             pass
  

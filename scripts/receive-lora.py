@@ -17,6 +17,29 @@ prev_packet = None
 
 print('Listening on 915MHz for packets...')
 
+led = DigitalInOut(board.D26)
+led.direction = Direction.OUTPUT
+
+while True:
+    packet = None
+    try:
+        packet = rfm9x.receive()
+    except:
+        print('Error receiving')
+    if packet is not None:
+
+        prev_packet = packet
+        try:
+            packet_text = str(prev_packet, "utf-8")
+            led.value = True
+            print('RX: ' + packet_text)
+            time.sleep(.5)
+            led.value = False
+        except:
+            pass
+ 
+    time.sleep(1)
+
 while True:
     packet = None
     try:

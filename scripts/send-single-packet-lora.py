@@ -16,10 +16,17 @@ def main(data_send):
     rfm9x.tx_power = 23
     prev_packet = None
 
+    led = DigitalInOut(board.D26)
+    led.direction = Direction.OUTPUT
+
     print("TX: " + data_send)
 
     data = bytes(data_send,"utf-8")
     rfm9x.send(data)
+
+    led.value = True
+    time.sleep(2)
+    led.value = False
 
     print("Packet Sent")
 

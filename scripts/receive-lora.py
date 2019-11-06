@@ -5,6 +5,7 @@ import busio
 from digitalio import DigitalInOut, Direction, Pull
 import board
 import adafruit_rfm9x
+import json
 
 print('Setting up LoRa Receiver...')
 
@@ -30,9 +31,10 @@ while True:
 
         prev_packet = packet
         try:
-            packet_text = str(prev_packet, "utf-8")
+            packet_text = json.loads(prev_packet)
+            packet_dict = json.loads(list(packet_text.keys())[0])
             led.value = True
-            print('RX: ' + packet_text)
+            print(packet_dict)
             time.sleep(.5)
             led.value = False
         except:

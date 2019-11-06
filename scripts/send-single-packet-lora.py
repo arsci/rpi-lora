@@ -25,7 +25,7 @@ def main(data_send):
     rfm9x.send(data)
 
     led.value = True
-    time.sleep(2)
+    time.sleep(.5)
     led.value = False
 
     print("Packet Sent")

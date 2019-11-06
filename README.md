@@ -42,7 +42,7 @@ These libraries/modules use Python 3, so be sure `python3` and `pip3` both work.
 
 ### Install Python libraries
 
-  `pip3 install RPI.GPIO`
+  `pip3 install RPI.GPIO`  
   `pip3 install adafruit-circuitpython-rfm9x`
 
 
@@ -91,13 +91,13 @@ To install/configure the services on the pi used to receive data:
 
 ### TX  
 
-To uninstall/configure the services on the pi used to transmit data:  
+To uninstall the services on the pi used to transmit data:  
 
 `sudo make uninstall`  
 
 ### RX 
 
-To uninstall/configure the services on the pi used to receive data:  
+To uninstall the services on the pi used to receive data:  
 
 `sudo make uninstall.rec`
 

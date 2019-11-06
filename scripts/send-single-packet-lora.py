@@ -10,15 +10,10 @@ import sys
 def main(data_send):
     print('Starting')
     CS = DigitalInOut(board.CE1)
-    print("CS")
     RESET = DigitalInOut(board.D25)
-    print("RESET")
     spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
-    print("SPI")
     rfm9x = adafruit_rfm9x.RFM9x(spi, CS, RESET, 915.0)
-    print("rfm9x")
     rfm9x.tx_power = 23
-    print("tx")
     prev_packet = None
 
     print("TX: " + data_send)

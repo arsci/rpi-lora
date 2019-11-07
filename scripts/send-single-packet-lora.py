@@ -13,7 +13,7 @@ def main(data_send):
     RESET = DigitalInOut(board.D25)
     spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
     rfm9x = adafruit_rfm9x.RFM9x(spi, CS, RESET, 915.0)
-    rfm9x.tx_power = 23
+    rfm9x.tx_power = 13
     prev_packet = None
 
     led = DigitalInOut(board.D26)

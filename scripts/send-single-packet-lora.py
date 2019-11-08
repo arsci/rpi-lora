@@ -25,7 +25,7 @@ def main(data_send):
 
     connect = False
 
-    while connect is False
+    while connect is False:
         try:
             print('Attempting RFM9X connection...')
             rfm9x.send(data)

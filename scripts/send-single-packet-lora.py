@@ -13,7 +13,8 @@ def main(data_send):
     RESET = DigitalInOut(board.D25)
     
     board_connect = False
-    while board_connect is False:
+    ctr = 0
+    while board_connect is False or ctr is 30:
         try:
             print('Attempting RFM9X connection...')
             spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
@@ -23,7 +24,7 @@ def main(data_send):
             board_connect = True
         except:
             print('Board connection failed. Retry...')
-
+            ctr = ctr + 1
 
     led = DigitalInOut(board.D26)
     led.direction = Direction.OUTPUT
@@ -34,7 +35,8 @@ def main(data_send):
 
     connect = False
 
-    while connect is False:
+    ctr = 0
+    while board_connect is False or ctr is 30:
         try:
             print('Attempting RFM9X send...')
             rfm9x.send(data)
@@ -45,6 +47,7 @@ def main(data_send):
             print("Packet Sent")
         except:
             print('Failed. Retry')
+            ctr = ctr + 1
 
     sys.exit(0)
 

@@ -11,10 +11,19 @@ def main(data_send):
     print('Starting')
     CS = DigitalInOut(board.D16)
     RESET = DigitalInOut(board.D25)
-    spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
-    rfm9x = adafruit_rfm9x.RFM9x(spi, CS, RESET, 915.0)
-    rfm9x.tx_power = 13
-    prev_packet = None
+    
+    board_connect = False
+    while board_connect is False:
+        try:
+            print('Attempting RFM9X connection...')
+            spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
+            rfm9x = adafruit_rfm9x.RFM9x(spi, CS, RESET, 915.0)
+            rfm9x.tx_power = 13
+            prev_packet = None
+            board_connect = True
+        except:
+            print('Board connection failed. Retry...')
+
 
     led = DigitalInOut(board.D26)
     led.direction = Direction.OUTPUT
@@ -27,7 +36,7 @@ def main(data_send):
 
     while connect is False:
         try:
-            print('Attempting RFM9X connection...')
+            print('Attempting RFM9X send...')
             rfm9x.send(data)
             connect = True
             led.value = True
@@ -35,8 +44,7 @@ def main(data_send):
             led.value = False
             print("Packet Sent")
         except:
-            print('Failed. Backoff and retry...')
-            time.sleep(.5)
+            print('Failed. Retry')
 
     sys.exit(0)
 

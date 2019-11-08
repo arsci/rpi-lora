@@ -11,7 +11,10 @@ def main(data_send):
     print('Starting')
     CS = DigitalInOut(board.D16)
     RESET = DigitalInOut(board.D25)
-    
+    led = DigitalInOut(board.D26)
+    led.direction = Direction.OUTPUT
+
+
     board_connect = False
     ctr = 0
     while (board_connect is False) and (ctr is not 30):
@@ -22,23 +25,20 @@ def main(data_send):
             rfm9x.tx_power = 13
             prev_packet = None
             board_connect = True
+            ctr = 0
         except:
             print('Board connection failed. Retry...')
             ctr = ctr + 1
+            if(ctr is 30):
+                print('Failed to connect to board. Skipping Data Send.')
             time.sleep(.5)
-
-    led = DigitalInOut(board.D26)
-    led.direction = Direction.OUTPUT
-
-    print("TX: " + data_send)
-
-    data = bytes(data_send,"utf-8")
-
+            
     connect = False
 
-    ctr = 0
     while (board_connect is False) and (ctr is not 30):
         try:
+            print("TX: " + data_send)
+            data = bytes(data_send,"utf-8")
             print('Attempting RFM9X send...')
             rfm9x.send(data)
             connect = True

@@ -22,13 +22,21 @@ def main(data_send):
     print("TX: " + data_send)
 
     data = bytes(data_send,"utf-8")
-    rfm9x.send(data)
 
-    led.value = True
-    time.sleep(.5)
-    led.value = False
+    connect = False
 
-    print("Packet Sent")
+    while connect is False
+        try:
+            print('Attempting RFM9X connection...')
+            rfm9x.send(data)
+            connect = True
+            led.value = True
+            time.sleep(.5)
+            led.value = False
+            print("Packet Sent")
+        except:
+            print('Failed. Backoff and retry...')
+            time.sleep(.5)
 
     sys.exit(0)
 

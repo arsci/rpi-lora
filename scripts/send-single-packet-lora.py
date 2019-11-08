@@ -35,7 +35,7 @@ def main(data_send):
             
     connect = False
 
-    while (board_connect is False) and (ctr is not 30):
+    while (connect is False) and (ctr is not 30):
         try:
             print("TX: " + data_send)
             data = bytes(data_send,"utf-8")

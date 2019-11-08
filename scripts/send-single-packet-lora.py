@@ -14,7 +14,7 @@ def main(data_send):
     
     board_connect = False
     ctr = 0
-    while (board_connect is False) and (ctr is 30):
+    while (board_connect is False) and (ctr is not 30):
         try:
             print('Attempting RFM9X connection...')
             spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
@@ -36,7 +36,7 @@ def main(data_send):
     connect = False
 
     ctr = 0
-    while (board_connect is False) and (ctr is 30):
+    while (board_connect is False) and (ctr is not 30):
         try:
             print('Attempting RFM9X send...')
             rfm9x.send(data)

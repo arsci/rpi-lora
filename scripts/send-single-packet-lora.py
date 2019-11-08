@@ -25,6 +25,7 @@ def main(data_send):
         except:
             print('Board connection failed. Retry...')
             ctr = ctr + 1
+            time.sleep(.5)
 
     led = DigitalInOut(board.D26)
     led.direction = Direction.OUTPUT
@@ -48,6 +49,7 @@ def main(data_send):
         except:
             print('Failed. Retry')
             ctr = ctr + 1
+            time.sleep(.5)
 
     sys.exit(0)
 
